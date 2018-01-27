@@ -1,3 +1,75 @@
+
+<head>
+	<title>Message Box</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+
+<div class="topnav" id="myTopnav">
+  <a href="friends_list.html" class="active">Home</a>
+</div>
+
+ <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Find a Friend
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+
+{% for friend in friends %}
+      <li><a href="#">{{ friend.name }}</a></li>
+{% endfor %}
+
+    </ul>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+<br>
+<div class="textarea">
+	<textarea rows="4" cols="50" name="comment" form="usrform" >
+Enter text here...</textarea>
+<br>
+<br>
+<br>
+<br>
+    <textarea rows="4" cols="50" name="comment" form="usrform">
+Write time here</textarea>
+	
+
+</div>
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
 {% for friend in friends %}
 <p> {{ friend.name }}, {{ friend.uid }} </p>
 {% endfor %}
+
+
+
+
+
+
+
+
+
+</body>
