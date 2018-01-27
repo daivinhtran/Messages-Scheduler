@@ -1,31 +1,4 @@
-.topnav {
-    background-color: #333;
-    overflow: hidden;
 
-}
-
-/* Style the links inside the navigation bar */
-.topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 25px 20px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-    background-color: #b30059;
-    color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-    background-color: #ff9999;
-    color: white;
-}
 * {
 box-sizing: border-box;
 }
@@ -109,4 +82,18 @@ box-shadow: none;
 
 .textarea {
   text-align: center;
+}
+.logoutLblPos{
+
+   position:fixed;
+   right:10px;
+   top:5px;
+}
+.dropdown {
+    background-color: white;
+    width: 300px;
+    border: 25px blue;
+    padding: 25px;
+    margin: 25px;
+    align-items: center;
 }
