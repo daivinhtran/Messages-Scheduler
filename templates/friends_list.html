@@ -1,124 +1,130 @@
-
 <head>
 	<title>Message Box</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		body {
+			font-family: Arial;
+			background: linear-gradient(135deg, #e570e7 0%, #79f1fc 100%);
+			padding: 50px;
+			text-align: center;
 
-body {
-  font-family: Arial;
-  background-color: #3498DB;
-  padding: 50px;
-  text-align: center;
+		}
 
-}
+		.bigbox {
+			border-radius: 25px;
+			background: #DAFCB1;
+			padding: 20px;
+			width: 700px;
+			height: 700px;
 
-.bigbox {
-    border-radius: 25px;
-    background: #6a5acd;
-    padding: 20px; 
-    width: 600px;
-    height: 400px;   
- 
-}
+		}
 
-.text {
+		.text {
+			font-size: "10";
 
-}
-:root {
-  /* if u want to change the color of
+		}
+
+		:root {
+			/* if u want to change the color of
    * the ripple change this value
   */
-  --color-ripple: rgba(255,255,255,0.8);
-}
+			--color-ripple: rgba(255, 255, 255, 0.8);
+		}
 
-body {
-  background: white;
-}
 
-.container {
-  position: fixed;
-  top: 0;
+		.container {
+			position: fixed;
+			top: 0;
 
-  right: 0;
+			right: 0;
 
-  height: 50px;
-  width: 200px;
-  margin: auto;
-}
-*[data-animation="ripple"] {
-  position: relative; /*Position relative is required*/
-  height: 100%;
-  width: 100%;
-  display: block;
-  outline: none;
-  padding: 20px;
-  color: #fff;
-  text-transform: uppercase;
-  background: linear-gradient(135deg, #e570e7 0%,#79f1fc 100%);
-  box-sizing: border-box;
-  text-align: center;
-  line-height: 14px;
-  font-family: roboto, helvetica;
-  font-weight: 200;
-  letter-spacing: 1px;
-  text-decoration: none;
-  box-shadow: 0 5px 3px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  /*border-radius: 50px;*/
-  -webkit-tap-highlight-color: transparent;
-}
+			height: 50px;
+			width: 200px;
+			margin: auto;
+		}
+		.submit {
+			height: 30px;
+			width: 100px;
+			margin: auto;
+		}
 
-*[data-animation="ripple"]:focus {
-  outline: none;
-}
+		*[data-animation="ripple"] {
+			position: relative;
+			/*Position relative is required*/
+			height: 100%;
+			width: 100%;
+			display: block;
+			outline: none;
+			padding: 20px;
+			color: black;
+			text-transform: uppercase;
+			background: linear-gradient(135deg, #DAFCB1 0%, #FCB1DF 100%);
+			box-sizing: border-box;
+			text-align: center;
+			line-height: 14px;
+			font-family: roboto, helvetica;
+			font-weight: 300;
+			letter-spacing: 1px;
+			text-decoration: none;
+			box-shadow: 0 5px 3px rgba(0, 0, 0, 0.3);
+			cursor: pointer;
+			/*border-radius: 50px;*/
+			-webkit-tap-highlight-color: transparent;
+		}
 
-*[data-animation="ripple"]::selection {
-  background: transparent;
-  pointer-events: none;
-}
-</style>
+		*[data-animation="ripple"]:focus {
+			outline: none;
+		}
+
+		*[data-animation="ripple"]::selection {
+			background: transparent;
+			pointer-events: none;
+		}
+	</style>
 </head>
+
 <body>
-<div>
-<link rel="stylesheet" href="/static/style.css" type="text/css">
+	<div>
+		<link rel="stylesheet" href="/static/style.css" type="text/css">
 
-<div class="container">
-  <a data-animation="ripple">Log Out</a>
-</div>
-<script>
-  
-const isMobile = window.navigator.userAgent.match(/Mobile/) && window.navigator.userAgent.match(/Mobile/)[0] === "Mobile";
-const event = isMobile ? "touchstart" : "click";
+		<div class="container">
+			<a data-animation="ripple">Log Out</a>
+		</div>
 
-const button = document.querySelectorAll('*[data-animation="ripple"]'),
-      container = document.querySelector(".container");
+		<script>
+			const isMobile = window.navigator.userAgent.match(/Mobile/) && window.navigator.userAgent.match(/Mobile/)[0] === "Mobile";
+			const event = isMobile ? "touchstart" : "click";
 
-for (var i = 0; i < button.length; i++) {
-  const currentBtn = button[i];
-  
-  currentBtn.addEventListener(event, function(e) {
-    
-    e.preventDefault();
-    const button = e.target,
-          rect = button.getBoundingClientRect(),
-          originalBtn = this,
-          btnHeight = rect.height,
-          btnWidth = rect.width;
-    let posMouseX = 0,
-        posMouseY = 0;
-    
-    if (isMobile) {
-      posMouseX = e.changedTouches[0].pageX - rect.left;
-      posMouseY = e.changedTouches[0].pageY - rect.top;
-    } else {
-      posMouseX = e.x - rect.left;
-      posMouseY = e.y - rect.top;
-    }
-    
-    const baseCSS =  `position: absolute;
+			const button = document.querySelectorAll('*[data-animation="ripple"]'),
+				container = document.querySelector(".container");
+
+			for (var i = 0; i < button.length; i++) {
+				const currentBtn = button[i];
+
+				currentBtn.addEventListener(event, function(e) {
+
+					e.preventDefault();
+					const button = e.target,
+						rect = button.getBoundingClientRect(),
+						originalBtn = this,
+						btnHeight = rect.height,
+						btnWidth = rect.width;
+					let posMouseX = 0,
+						posMouseY = 0;
+
+					if (isMobile) {
+						posMouseX = e.changedTouches[0].pageX - rect.left;
+						posMouseY = e.changedTouches[0].pageY - rect.top;
+					} else {
+						posMouseX = e.x - rect.left;
+						posMouseY = e.y - rect.top;
+					}
+
+					const baseCSS =
+						`position: absolute;
                       width: ${btnWidth * 2}px;
                       height: ${btnWidth * 2}px;
                       transition: all linear 700ms;
@@ -129,76 +135,81 @@ for (var i = 0; i < button.length; i++) {
                       left:${posMouseX - btnWidth}px;
                       pointer-events: none;
                       transform:scale(0)`
-    
-    var rippleEffect = document.createElement("span");
-    rippleEffect.style.cssText = baseCSS;
-    
-    //prepare the dom
-    currentBtn.style.overflow = "hidden";
-    this.appendChild(rippleEffect);
-    
-    //start animation
-    setTimeout( function() { 
-      rippleEffect.style.cssText = baseCSS + `transform:scale(1); opacity: 0;`;
-    }, 5);
-    
-    setTimeout( function() {
-      rippleEffect.remove();
-      //window.location.href = currentBtn.href;
-    },700);
-  })
-}
 
-</script>
+					var rippleEffect = document.createElement("span");
+					rippleEffect.style.cssText = baseCSS;
 
+					//prepare the dom
+					currentBtn.style.overflow = "hidden";
+					this.appendChild(rippleEffect);
+
+					//start animation
+					setTimeout(function() {
+						rippleEffect.style.cssText = baseCSS + `transform:scale(1); opacity: 0;`;
+					}, 5);
+
+					setTimeout(function() {
+						rippleEffect.remove();
+						//window.location.href = currentBtn.href;
+					}, 700);
+				})
+			}
+		</script>
 
 
-</div>
- <div class="dropdown" align="center">
-    <button align="center" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Find a Friend
+
+	</div>
+	<div class="dropdown" align="center">
+		<button align="center" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Find a Friend
     <span class="caret"></span></button>
-    <ul class="dropdown-menu">
+		<ul class="dropdown-menu">
 
-{% for friend in friends %}
-      <li><a href="#">{{ friend.name }}</a></li>
-{% endfor %}
+			{% for friend in friends %}
+			<li>{{ friend.name }}</li>
+			{% endfor %}
 
-    </ul>
-  </div>
+		</ul>
+	</div>
 
-  <br>
-  <br>
-  <br>
-  <br>
-<div class="center-block bigbox" align="center">
-  <div class="textarea" align="center">
-    <div class="text">
-      Write a message in the box.
-    </div>
-    <br>
-  	<textarea rows="4" cols="50" name="comment" form="usrform" >
-    Enter text here...</textarea>
-  <br>
-  <br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="center-block bigbox" align="center">
+		<div class="textarea" align="center">
+			<div class="text">
+				<p><font size="4">
+				Write a message in the box.
+			</font>
+			</div>
+			<br>
+			<textarea rows="10" cols="80" name="comment" form="usrform"></textarea>
+			<br>
+			<br>
 
-  <br>
-  <br>
-  <div class="text">
-  <p> 
-    Write date and time to send the message in the format "MM/DD/YYYY HH/MM""
-  </p>
-  </div>
-      <textarea rows="4" cols="50" name="comment" form="usrform">
-      Write time here</textarea>
-  	
-
-  </div>
-</div>
+			<br>
+			<br>
+			<div class="text">
+				<p> <font size="4">
+					Write date and time to send the message in the format "MM/DD/YYYY HH/MM""
+				</font>
+				</p>
+				<br>
+			</div>
+			<textarea rows="10" cols="80" name="comment" form="usrform"></textarea>
 
 
-<br>
-<br>
-<br>
+		</div>
+		<br>
+		<div class="submit">
+			<a data-animation="ripple">Submit</a>
+		</div>
+	</div>
+
+
+	<br>
+	<br>
+	<br>
 
 
 </body>
