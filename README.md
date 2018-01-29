@@ -27,4 +27,4 @@ This project is by a team of 5 Georgia Tech students in 24 hours:
 * [Thinh Nguyen](https://github.com/thinhnguyennt7)
 * [Lan Le Tu](https://github.com/nhtalan)
 * [An Tran](https://github.com/anqtran)
-* [Chau Phan](https://github.com/daivinhtran)
+* [Chau Phan](https://github.com/chauphan0801)
